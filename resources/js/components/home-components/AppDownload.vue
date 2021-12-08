@@ -1,0 +1,37 @@
+<template>
+    <div class="container">
+    <div class="free-serv">
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-2  align-items-center">
+            <div class="col">
+                <div class="serv-left-sec">
+                    <h3 class="title-white mb-3">{{appsetting.title}}</h3>
+                    <p  class="title-white mb-5">{{appsetting.description}}</p>                
+                    <div class="d-flex dwn-box">                       
+                        <button class="dwn-link"><a :href="appsetting.play_store_url"  target="_blank"><img :src="baseUrl+'/images/frontend/googleplay.png'"></a></button>                       
+                        <button class="dwn-link"><a :href="appsetting.app_store_url" target="_blank"><img :src="baseUrl+'/images/frontend/apple.png'"></a></button>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <img class="mb-right" :src="baseUrl+'/images/frontend/'+ appsetting.app_image">
+                <img class="mb-right-device" :src="baseUrl+'/images/frontend/'+ appsetting.app_image_full">
+            </div>
+        </div>
+    </div>
+</div>
+</template>
+<script>
+import Appsetting from '../../appdownload.json'
+export default {
+  name: "AppDownload",
+  data() {
+    return {
+        baseUrl:window.baseUrl,
+        appsetting:{}
+    };
+  },
+  mounted() {
+    this.appsetting = Appsetting
+  }
+};
+</script>
